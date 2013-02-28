@@ -6,7 +6,7 @@ An implementation of simple trapezoidal integration in Scala.
 
 ## Required
 
-- [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads)
+- Java Development Kit (JDK) through your package management system or from [Oracle](http://www.oracle.com/technetwork/java/javase/downloads)
 - [sbt](http://www.scala-sbt.org/)
 
 These really are the only required prerequisites.
