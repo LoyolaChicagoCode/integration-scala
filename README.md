@@ -2,6 +2,20 @@
 
 An implementation of simple trapezoidal integration in Scala.
 
+# Prerequisites
+
+## Required
+
+- [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads)
+- [sbt](http://www.scala-sbt.org/)
+
+These really are the only required prerequisites.
+
+## Optional
+
+- [Eclipse 4.2.x IDE for Java Developers](http://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/junosr1)
+- [Scala IDE Eclipse plugin](http://scala-ide.org/download/milestone.html#scala_ide_21_milestone_3) corresponding to your Eclipse version
+
 # Command-line
 
 ## Running the sample application
