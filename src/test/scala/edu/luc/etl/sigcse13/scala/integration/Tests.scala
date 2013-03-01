@@ -11,6 +11,6 @@ import Fixtures._
 class Tests {
 
   @Test def testSquare() {
-    assertEquals(333, integrate(0, 10, 1000, sqr), 1)
+    assertEquals(333.3, integrate(0, 10, 1000, sqr), 0.1)
   }
 }
