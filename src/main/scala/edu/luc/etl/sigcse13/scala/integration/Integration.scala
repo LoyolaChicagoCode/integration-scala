@@ -9,4 +9,11 @@ object Integration {
     val fxValues = (1 until g) map { n => f(a + n * interval) }
     (b - a) / g * (f(a) / 2 + f(b) / 2 + fxValues.sum)
   }
+
+
+  def integrateParallel(a: Double, b: Double, g: Int, f: Fx): Double = {
+    val interval = (b - a) / g
+	val fxValues = (1 until g).par.map { n => f(a + n * interval) }
+   	(b - a) / g * (f(a) / 2 + f(b) / 2 + fxValues.sum)
+  }
 }
