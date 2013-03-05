@@ -18,6 +18,7 @@ object Main extends {
     }
   }
 
+  // begin-timedRun
   def timedRunSquare(rectangles : Int, n : Int) {
     val area = integrate(0, 10, rectangles, sqr)
     println("Area = ", area, "computed; now timing ", n, " iterations")
@@ -38,6 +39,6 @@ object Main extends {
     val time3 = System.currentTimeMillis - time2
     println("total time = " + time3)
     println("average time = " + (time3 + 0.0) / n)
-
   }
+  // end-timedRun
 }
