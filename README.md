@@ -20,7 +20,17 @@ These really are the only required prerequisites.
 
 ## Running the sample application
 
-    $ sbt test:run
+During development:
+
+    $ sbt 'run rectangles (>= 1000) numberOfRuns (>= 1)'
+
+During production, first create the startup script:
+
+    $ sbt stage
+
+Then run the application outside of sbt like this:
+
+    $ target/start rectangles (>= 1000) numberOfRuns (>= 1)
 
 ## Running the tests
 
