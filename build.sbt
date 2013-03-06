@@ -2,7 +2,7 @@ import com.typesafe.sbt.SbtStartScript
 
 name := "integration-scala"
 
-version := "0.0.1"
+version := "0.0.2"
 
 scalaVersion := "2.10.1-RC1"
 
@@ -12,5 +12,3 @@ libraryDependencies ++= Seq(
 )
 
 seq(SbtStartScript.startScriptForClassesSettings: _*)
-
-mainClass in Compile := Some("edu.luc.etl.sigcse13.scala.integration.Main")
