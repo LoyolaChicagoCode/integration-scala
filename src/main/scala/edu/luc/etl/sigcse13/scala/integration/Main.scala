@@ -14,11 +14,8 @@ object Main extends {
 
       timedRun(rectangles, n, "sequentially", integrateSequential)
       timedRun(rectangles, n, "in parallel", integrateParallel)
-
-      def bindNumWorkersToIntegrateGranular(a : Double, b : Double, g : Int, f : Fx) : Double = {
-        integrateParallelGranular(a, b, g, grainSize, f)
-      }
-      timedRun(rectangles, n, "in parallel with " + grainSize + " rectangles per serial worker", bindNumWorkersToIntegrateGranular)
+      timedRun(rectangles, n, "in parallel with " + grainSize +
+        " rectangles per serial worker", integrateParallelGranular(grainSize))
 
     } catch {
       case _: NumberFormatException => usage()
@@ -26,7 +23,10 @@ object Main extends {
     }
   }
 
-  def usage() { Console.err.println("usage: rectangles (>= 1000) numberOfRuns (>= 1) [ grainSize (rectangles % grainSize == 0) ]") }
+  def usage() {
+    Console.err.println("usage: rectangles (>= 1000) " +
+      "numberOfRuns (>= 1) [ grainSize (rectangles % grainSize == 0) ]")
+  }
 
   def timeThis[A](s : String)(block : => A) : A = {
   	val time0 = System.currentTimeMillis

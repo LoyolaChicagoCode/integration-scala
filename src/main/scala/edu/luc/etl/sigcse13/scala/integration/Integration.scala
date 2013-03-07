@@ -22,7 +22,7 @@ object Integration {
   // end-integrateParallel
 
  // begin-integrateParallelGranular
-  def integrateParallelGranular(a: Double, b: Double, rectangles: Int, grainSize : Int, f: Fx): Double = {
+  def integrateParallelGranular(grainSize: Int)(a: Double, b: Double, rectangles: Int, f: Fx): Double = {
     require { rectangles % grainSize == 0 } // can relax this later
     val workers = rectangles / grainSize
     val interval = (b - a) / workers

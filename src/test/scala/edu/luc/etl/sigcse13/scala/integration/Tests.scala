@@ -19,6 +19,6 @@ class Tests {
   }
 
   @Test def testParallelGranular() {
-    assertEquals(333.3, integrateParallelGranular(0, 10, 1000, 10, sqr), 0.1)
+    assertEquals(333.3, integrateParallelGranular(10)(0, 10, 1000, sqr), 0.1)
   }
 }
