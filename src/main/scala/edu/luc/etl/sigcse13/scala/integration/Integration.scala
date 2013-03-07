@@ -6,7 +6,7 @@ object Integration {
   type Fx = Double => Double
 
   // begin-integrate
-  def integrate(a: Double, b: Double, rectangles: Int, f: Fx): Double = {
+  def integrateSequential(a: Double, b: Double, rectangles: Int, f: Fx): Double = {
     val interval = (b - a) / rectangles
     val fxValues = (1 until rectangles).view map { n => f(a + n * interval) }
     (b - a) / rectangles * (f(a) / 2 + f(b) / 2 + fxValues.sum)
@@ -28,7 +28,7 @@ object Integration {
     val interval = (b - a) / workers
     val fullIntegration = (0 until workers).par.view map { n =>
       val c = a + n * interval
-      integrate(c, c + interval, grainSize, f)
+      integrateSequential(c, c + interval, grainSize, f)
     }
     fullIntegration.sum
   }

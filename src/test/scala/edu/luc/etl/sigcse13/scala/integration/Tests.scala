@@ -2,7 +2,7 @@ package edu.luc.etl.sigcse13.scala.integration
 
 import org.junit.Test
 import org.junit.Assert._
-import Integration.integrate
+import Integration._
 import Fixtures._
 
 /**
@@ -10,7 +10,15 @@ import Fixtures._
  */
 class Tests {
 
-  @Test def testSquare() {
-    assertEquals(333.3, integrate(0, 10, 1000, sqr), 0.1)
+  @Test def testSequential() {
+    assertEquals(333.3, integrateSequential(0, 10, 1000, sqr), 0.1)
+  }
+
+  @Test def testParallel() {
+    assertEquals(333.3, integrateParallel(0, 10, 1000, sqr), 0.1)
+  }
+
+  @Test def testParallelGranular() {
+    assertEquals(333.3, integrateParallelGranular(0, 10, 1000, 10, sqr), 0.1)
   }
 }

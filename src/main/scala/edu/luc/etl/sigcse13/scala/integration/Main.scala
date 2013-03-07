@@ -12,7 +12,7 @@ object Main extends {
       val n  = math.max(args(1).toInt, 1)
       val grainSize = if (args.length == 3) math.min(args(2).toInt, rectangles) else rectangles
 
-      timedRun(rectangles, n, "sequentially", integrate)
+      timedRun(rectangles, n, "sequentially", integrateSequential)
       timedRun(rectangles, n, "in parallel", integrateParallel)
 
       def bindNumWorkersToIntegrateGranular(a : Double, b : Double, g : Int, f : Fx) : Double = {
