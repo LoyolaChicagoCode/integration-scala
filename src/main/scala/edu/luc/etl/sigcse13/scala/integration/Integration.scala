@@ -6,27 +6,30 @@ object Integration {
   type Fx = Double => Double
 
   // begin-integrate
-  def integrate(a: Double, b: Double, g: Int, f: Fx): Double = {
-    val interval = (b - a) / g
-    val fxValues = (1 until g).view map { n => f(a + n * interval) }
-    (b - a) / g * (f(a) / 2 + f(b) / 2 + fxValues.sum)
+  def integrate(a: Double, b: Double, rectangles: Int, f: Fx): Double = {
+    val interval = (b - a) / rectangles
+    val fxValues = (1 until rectangles).view map { n => f(a + n * interval) }
+    (b - a) / rectangles * (f(a) / 2 + f(b) / 2 + fxValues.sum)
   }
   // end-integrate
 
   // begin-integrateParallel
-  def integrateParallel(a: Double, b: Double, g: Int, f: Fx): Double = {
-    val interval = (b - a) / g
-	val fxValues = (1 until g par).view map { n => f(a + n * interval) }
-   	(b - a) / g * (f(a) / 2 + f(b) / 2 + fxValues.sum)
+  def integrateParallel(a: Double, b: Double, rectangles: Int, f: Fx): Double = {
+    val interval = (b - a) / rectangles
+	val fxValues = (1 until rectangles).par.view map { n => f(a + n * interval) }
+   	(b - a) / rectangles * (f(a) / 2 + f(b) / 2 + fxValues.sum)
   }
   // end-integrateParallel
 
  // begin-integrateParallelGranular
-  def integrateParallelGranular(a: Double, b: Double, g: Int, grainSize : Int, f: Fx): Double = {
-    require { g % grainSize == 0 } // can relax this later
-    val interval = (b - a) / grainSize
-    val workers = g / grainSize
-    val fullIntegration = (0 until workers).par.map { n => integrate(a + n * interval, a + (n + 1) * interval, grainSize, f) }
+  def integrateParallelGranular(a: Double, b: Double, rectangles: Int, grainSize : Int, f: Fx): Double = {
+    require { rectangles % grainSize == 0 } // can relax this later
+    val workers = rectangles / grainSize
+    val interval = (b - a) / workers
+    val fullIntegration = (0 until workers).par.view map { n =>
+      val c = a + n * interval
+      integrate(c, c + interval, grainSize, f)
+    }
     fullIntegration.sum
   }
   // end-integrateParallelGranular
