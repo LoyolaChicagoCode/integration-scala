@@ -11,7 +11,7 @@ object Integration {
   def integrateSequential(a: Double, b: Double, rectangles: Int, f: Fx): Double = {
     val interval = (b - a) / rectangles
     val fxValues = (1 until rectangles).view map { n => f(a + n * interval) }
-    (b - a) / rectangles * (f(a) / 2 + f(b) / 2 + fxValues.sum)
+    interval * (f(a) / 2 + f(b) / 2 + fxValues.sum)
   }
   // end-integrate
 
@@ -19,7 +19,7 @@ object Integration {
   def integrateParallel(a: Double, b: Double, rectangles: Int, f: Fx): Double = {
     val interval = (b - a) / rectangles
     val fxValues = (1 until rectangles).par.view map { n => f(a + n * interval) }
-    (b - a) / rectangles * (f(a) / 2 + f(b) / 2 + fxValues.sum)
+    interval * (f(a) / 2 + f(b) / 2 + fxValues.sum)
   }
   // end-integrateParallel
 
