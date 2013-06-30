@@ -6,9 +6,6 @@ version := "0.0.2"
 
 scalaVersion := "2.10.1"
 
-libraryDependencies ++= Seq(
-  "junit" % "junit" % "4.11",
-  "com.novocode" % "junit-interface" % "0.10-M2" % "test"
-)
+libraryDependencies += "com.novocode" % "junit-interface" % "0.10-M4" % "test"
 
 seq(SbtStartScript.startScriptForClassesSettings: _*)
