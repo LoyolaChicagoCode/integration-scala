@@ -18,7 +18,7 @@ object Main extends {
         " rectangles per serial worker", integrateParallelGranular(grainSize))
 
     } catch {
-      case _: NumberFormatException => usage()
+      case _: NumberFormatException    => usage()
       case _: IllegalArgumentException => usage()
     }
   }
