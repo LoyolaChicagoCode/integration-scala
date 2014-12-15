@@ -21,7 +21,10 @@ local.properties
 .classpath
 .project
 .settings/
+.idea/
 
 # Emacs files
 *~
 \#*\#
+
+.DS_Store
