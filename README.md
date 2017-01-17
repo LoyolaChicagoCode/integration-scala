@@ -23,7 +23,7 @@ During production, first create the startup script:
 
 Then run the application outside of sbt like this:
 
-    $ target/start rectangles (>= 1000) numberOfRuns (>= 1)
+    $ ./target/universal/stage/bin/integration-scala rectangles (>= 1000) numberOfRuns (>= 1)
 
 ## Running the tests
 
