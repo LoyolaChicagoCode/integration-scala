@@ -17,8 +17,9 @@ object Main extends {
       timedRun(rectangles, n, "in parallel with " + grainSize +
         " rectangles per serial worker", integrateParallelGranular(grainSize))
 
-    } catch {
-      case _: NumberFormatException => usage()
+    }
+    catch {
+      case _: NumberFormatException    => usage()
       case _: IllegalArgumentException => usage()
     }
   }
