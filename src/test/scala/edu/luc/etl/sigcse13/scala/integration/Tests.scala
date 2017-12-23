@@ -6,8 +6,8 @@ import Integration._
 import Fixtures._
 
 /**
- * Simple JUnit-based tests.
- */
+  * Simple JUnit-based tests.
+  */
 class Tests {
 
   @Test def testSequential() {

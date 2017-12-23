@@ -38,7 +38,7 @@ object Main extends {
 
   // begin-timedRun
   def timedRun(rectangles: Int, n: Int, how: String,
-    integrationStrategy: (Double, Double, Int, Fx) => Double) {
+      integrationStrategy: (Double, Double, Int, Fx) => Double) {
     timeThis(how) {
       print("Computing area " + how + "; now timing " + n + " iterations")
       val area: Double = (1 to n).map { _ => integrationStrategy(0, 10, rectangles, sqr) }.head
