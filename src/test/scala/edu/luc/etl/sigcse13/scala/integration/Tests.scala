@@ -10,15 +10,15 @@ import Fixtures._
   */
 class Tests {
 
-  @Test def testSequential() {
+  @Test def testSequential(): Unit = {
     assertEquals(333.3, integrateSequential(0, 10, 1000, sqr), 0.1)
   }
 
-  @Test def testParallel() {
+  @Test def testParallel(): Unit = {
     assertEquals(333.3, integrateParallel(0, 10, 1000, sqr), 0.1)
   }
 
-  @Test def testParallelGranular() {
+  @Test def testParallelGranular(): Unit = {
     assertEquals(333.3, integrateParallelGranular(10)(0, 10, 1000, sqr), 0.1)
   }
 }

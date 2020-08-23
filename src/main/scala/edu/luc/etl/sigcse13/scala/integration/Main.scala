@@ -5,7 +5,7 @@ import Fixtures.sqr
 
 object Main extends {
 
-  def main(args: Array[String]) {
+  def main(args: Array[String]): Unit = {
     try {
       require { 2 <= args.length }
       val rectangles = math.max(args(0).toInt, 1000)
@@ -23,7 +23,7 @@ object Main extends {
     }
   }
 
-  def usage() {
+  def usage(): Unit = {
     Console.err.println("usage: rectangles (>= 1000) " +
       "numberOfRuns (>= 1) [ grainSize (rectangles % grainSize == 0) ]")
   }
@@ -38,7 +38,7 @@ object Main extends {
 
   // begin-timedRun
   def timedRun(rectangles: Int, n: Int, how: String,
-      integrationStrategy: (Double, Double, Int, Fx) => Double) {
+      integrationStrategy: (Double, Double, Int, Fx) => Double): Unit = {
     timeThis(how) {
       print("Computing area " + how + "; now timing " + n + " iterations")
       val area: Double = (1 to n).map { _ => integrationStrategy(0, 10, rectangles, sqr) }.head
