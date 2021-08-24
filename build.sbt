@@ -9,3 +9,5 @@ scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked", "-Yexplicit-null
 libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % Test
 
 enablePlugins(JavaAppPackaging)
+
+scalacOptions ++= Seq("-rewrite", "-new-syntax")

@@ -10,7 +10,7 @@ object Main {
       require { 2 <= args.length }
       val rectangles = math.max(args(0).toInt, 1000)
       val n = math.max(args(1).toInt, 1)
-      val grainSize = if (args.length == 3) math.min(args(2).toInt, rectangles) else rectangles
+      val grainSize = if args.length == 3 then math.min(args(2).toInt, rectangles) else rectangles
 
       timedRun(rectangles, n, "sequentially", integrateSequential)
       timedRun(rectangles, n, "in parallel", integrateParallel)
