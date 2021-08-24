@@ -2,7 +2,7 @@ name := "integration-scala"
 
 version := "0.2"
 
-scalaVersion := "2.13.3"
+scalaVersion := "3.0.1"
 
 scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked")
 
