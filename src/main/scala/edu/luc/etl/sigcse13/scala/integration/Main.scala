@@ -3,7 +3,7 @@ package edu.luc.etl.sigcse13.scala.integration
 import Integration._
 import Fixtures.sqr
 
-object Main extends {
+object Main {
 
   def main(args: Array[String]): Unit = {
     try {
