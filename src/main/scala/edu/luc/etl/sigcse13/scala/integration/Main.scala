@@ -1,6 +1,6 @@
 package edu.luc.etl.sigcse13.scala.integration
 
-import Integration._
+import Integration.*
 import Fixtures.sqr
 
 object Main {

@@ -1,9 +1,9 @@
 package edu.luc.etl.sigcse13.scala.integration
 
 import org.junit.Test
-import org.junit.Assert._
-import Integration._
-import Fixtures._
+import org.junit.Assert.*
+import Integration.*
+import Fixtures.*
 
 /**
   * Simple JUnit-based tests.
