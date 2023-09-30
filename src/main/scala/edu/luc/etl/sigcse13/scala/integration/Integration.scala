@@ -10,7 +10,7 @@ object Integration:
   // begin-integrate
   def integrateSequential(a: Double, b: Double, rectangles: Int, f: Fx): Double =
     val interval = (b - a) / rectangles
-    val fxValues = (1 until rectangles).view map { n => f(a + n * interval) }
+    val fxValues = (1 until rectangles).view.map { n => f(a + n * interval) }
     interval * (f(a) / 2 + f(b) / 2 + fxValues.sum)
   // end-integrate
 
@@ -26,10 +26,10 @@ object Integration:
     require { rectangles % grainSize == 0 } // can relax this later
     val workers = rectangles / grainSize
     val interval = (b - a) / workers
-    val fullIntegration = (0 until workers).view map { n =>
-      val c = a + n * interval
-      integrateSequential(c, c + interval, grainSize, f)
-    }
+    val fullIntegration = (0 until workers).view.map:
+      n =>
+        val c = a + n * interval
+        integrateSequential(c, c + interval, grainSize, f)
     fullIntegration.sum
   // end-integrateParallelGranular
 
