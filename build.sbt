@@ -2,7 +2,7 @@ name := "integration-scala"
 
 version := "0.2"
 
-scalaVersion := "3.3.0"
+scalaVersion := "3.3.3"
 
 scalacOptions += "@.scalacOptions.txt"
 
